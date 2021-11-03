@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>kaboom</title>
+  <meta charset="utf-8">
+  <style>
+    * {
+      margin: 0;
+    }
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+<script src="https://kaboomjs.com/lib/0.5.0/kaboom.js"></script>
+<script src="https://kaboomjs.com/lib/0.5.0/plugins/aseprite.js"></script>
+<script src="https://kaboomjs.com/lib/0.5.0/plugins/pedit.js"></script>
+<script src="https://kaboomjs.com/pub/legacy/kbmsprite.js"></script>
+
+  <script>
+
+kaboom({
+  ...{"fullscreen":true,"width":240,"height":240,"scale":2,"startScene":"main","version":"0.5.0"},
+  global: true,
+  plugins: [ peditPlugin, asepritePlugin, kbmspritePlugin ],
+});
+loadSprite("Idle", "sprites/Idle.png");
+loadSprite("Idle1", "sprites/Idle1.png");
+loadSprite("Idle2", "sprites/Idle2.png");
+loadSprite("Idle3", "sprites/Idle3.png");
+loadSprite("Idle4", "sprites/Idle4.png");
+loadSprite("Walk1", "sprites/Walk1.png");
+loadSprite("Walk1L", "sprites/Walk1L.png");
+loadSprite("Walk2", "sprites/Walk2.png");
+loadSprite("Walk2L", "sprites/Walk2L.png");
+loadSprite("Walk3", "sprites/Walk3.png");
+loadSprite("Walk3L", "sprites/Walk3L.png");
+loadSprite("Walk4", "sprites/Walk4.png");
+loadSprite("Walk4L", "sprites/Walk4L.png");
+loadSprite("Walk5", "sprites/Walk5.png");
+loadSprite("Walk5L", "sprites/Walk5L.png");
+loadSprite("Walk6", "sprites/Walk6.png");
+loadSprite("Walk6L", "sprites/Walk6L.png");
+loadSprite("cyberpunk sheet v1", "sprites/cyberpunk sheet v1.png");
+loadSprite("cyberpunk", "sprites/cyberpunk.png");
+loadSprite("floor1", "sprites/floor1.png");
+loadSprite("floor2", "sprites/floor2.png");
+loadSprite("floor3", "sprites/floor3.png");
+loadSprite("floor4", "sprites/floor4.png");
+loadSprite("floor5", "sprites/floor5.png");
+loadSprite("grass", "sprites/grass.png");
+loadSprite("head", "sprites/head.png");
+loadSprite("laserCharge", "sprites/laserCharge.png");
+loadSprite("leg", "sprites/leg.png");
+loadSprite("player", "sprites/player.png");
+loadSprite("tile000", "sprites/tile000.png");
+loadSprite("tile001", "sprites/tile001.png");
+loadSprite("tile002", "sprites/tile002.png");
+loadSprite("tile003", "sprites/tile003.png");
+loadSprite("tile004", "sprites/tile004.png");
+loadSprite("tile005", "sprites/tile005.png");
+loadSprite("tile006", "sprites/tile006.png");
+loadSprite("tile007", "sprites/tile007.png");
+loadSprite("tile008", "sprites/tile008.png");
+loadSprite("tile009", "sprites/tile009.png");
+loadSprite("tile010", "sprites/tile010.png");
+loadSprite("tile011", "sprites/tile011.png");
+loadSprite("tile012", "sprites/tile012.png");
+loadSprite("tile013", "sprites/tile013.png");
+loadSprite("tile014", "sprites/tile014.png");
+loadSprite("tile015", "sprites/tile015.png");
+loadSprite("tile016", "sprites/tile016.png");
+loadSprite("tile017", "sprites/tile017.png");
+loadSprite("tile018", "sprites/tile018.png");
+loadSprite("tile019", "sprites/tile019.png");
+loadSprite("tile020", "sprites/tile020.png");
+loadSprite("tile021", "sprites/tile021.png");
+loadSprite("tile022", "sprites/tile022.png");
+loadSprite("tile023", "sprites/tile023.png");
+loadSprite("tile024", "sprites/tile024.png");
+loadSprite("tile025", "sprites/tile025.png");
+loadSprite("tile026", "sprites/tile026.png");
+loadSprite("tile027", "sprites/tile027.png");
+loadSprite("tile028", "sprites/tile028.png");
+loadSprite("tile029", "sprites/tile029.png");
+loadSprite("tile030", "sprites/tile030.png");
+loadSprite("tile031", "sprites/tile031.png");
+loadSprite("tile032", "sprites/tile032.png");
+loadSprite("tile033", "sprites/tile033.png");
+loadSprite("tile034", "sprites/tile034.png");
+loadSprite("tile035", "sprites/tile035.png");
+loadSprite("tile036", "sprites/tile036.png");
+loadSprite("tile_0067", "sprites/tile_0067.png");
+loadSprite("wall1", "sprites/wall1.png");
+loadSprite("wallL", "sprites/wallL.png");
+scene("Animations", (args = {}) => {
+// function Animations() {
+// 	const player = k.add([
+// 		k.sprite('tiles', {
+// 			animSpeed: 0.2,
+// 			frame: 300
+// 		}),
+// 		k.pos(k.width() * 0.5, k.height() * 0.5),
+// 		k.origin('center'),
+// 		k.scale(1)
+// 	])
+
+// 	// basic key press logic to change animations
+// 	k.keyPress('left', () => {
+// 		player.scale.x = -1
+// 		player.play('run')
+// 	})
+
+// 	k.keyPress('right', () => {
+// 		player.scale.x = 1
+// 		player.play('run')
+// 	})
+
+// 	k.keyRelease('left', () => {
+// 		player.play('idle')
+// 	})
+
+// 	k.keyRelease('right', () => {
+// 		player.play('idle')
+// 	})
+// }
+});
+scene("main", (args = {}) => {
+ 
+// loadSprite('sign', './Sprites/tile_0067')
+
+addLevel([
+  'lwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww',
+  'lxddxssafaxxsfdaaadffxxxssaadfaaxxsdd',
+  'lfaaxxsddxddxssafaxxsfdaaadffxxxssaad',
+  'lxddxffxxxssaadssafaxxsfdaaadfaaxxsdd',
+  'lfaxxsfdaaadffxxxxddxssassaadfaaxxsdd',
+  'laadffxxxssaadxddxssafaxxsfdafaaxxsdd',
+  'lxddxssafadffxxxssaadfaxxsfdaaaaxxsdd',
+  'lxddaaadffxxxssaadfdxssafaxxsfaaxxsdd',
+  'lxddxssaadfaaxxsddfaxxsfdaaadffxxxssa',
+  'lsfdaaadffxxxssaadfaxddxssafaxxaxxsdd',
+  'lffxxxssaadfaxddxssafaxxsfdaaadaxxsdd',
+  'laaadffxxxssaadfxddxssafaxxsfdaaxxsdd',
+  'ladfaxddxssafaxxsfdaaadffxxxssaaxxsdd',
+  'lxddxssafaxxsfdaaadffxxxssaadfaaxxsdd',
+
+], {
+  width: 16,
+  height: 16,
+  'x' : [sprite('floor2')],
+  's' : [sprite('floor1')],
+  'a' : [sprite('floor3')],
+  'd' : [sprite('floor4')],
+  'f' : [sprite('floor5')],
+  'w' : [sprite('wall1')],
+  'l' : [sprite('wallL')],
+
+})
+
+
+// loadSpriteAtlas("sprites/Idle1.png", {
+// "main": {
+  
+// }
+// });
+/*
+loadSpriteAtlas("sprites/dungeon.png", {
+	"hero": {
+		"x": 128,
+		"y": 196,
+		"width": 144,
+		"height": 28,
+		"sliceX": 9,
+		"anims": {
+			"idle": {
+				"from": 0,
+				"to": 3,
+				"speed": 3,
+				"loop": true
+			},
+*/
+
+// loadSprite('cyberpunk',"Idle1", {
+//     sliceX: 48,
+// 	  sliceY: 38,
+//         anims: {
+//             idle: { from: 0, to: 5 },
+ 
+//     },
+// })
+
+const player = add ([
+  sprite('Idle1'),
+  pos(400,100)
+]);
+// player.play('idle')
+console.log(player)
+player.firing = false
+
+let i = 0
+let j = 0
+const idle = () => {
+
+  const frames = [
+    'Idle1',
+    'Idle2',
+    'Idle3',
+    'Idle4',
+
+  ]
+  
+   if(i >= 4) i = 0
+  player.changeSprite(frames[i])
+
+   i++
+
+}
+const walk = () => {
+ 
+  const frames = [
+    'Walk1',
+    'Walk2',
+    'Walk3',
+    'Walk4',
+    'Walk5',
+    'Walk6',
+  ]
+    const framesL = [
+    'Walk1L',
+    'Walk2L',
+    'Walk3L',
+    'Walk4L',
+    'Walk5L',
+    'Walk6L',
+  ]
+  if(i >= 6) i = 0
+player.direction == 'left' ? player.changeSprite(framesL[i]) : player.changeSprite(frames[i])
+ 
+  i++
+
+}
+
+let laserIndex = 0;
+const laser =  () => {
+  
+  const laserFrames = [
+
+  'tile001',
+  'tile002',
+  'tile003',
+  'tile004',
+  'tile005',
+  'tile006',
+  'tile007',
+  'tile008',
+  'tile009',
+  'tile010',
+  'tile011',       
+  'tile012',
+  'tile013',
+  'tile014',
+  'tile015',
+  'tile016',
+  'tile017',
+  'tile018',
+  'tile019',
+  'tile020',
+  'tile021',
+  'tile022',
+  'tile023',
+  'tile024',
+  'tile025',
+  'tile026',
+  'tile027',
+  'tile028',
+  'tile029',
+  'tile030',
+  'tile031',
+  'tile032',
+  'tile033',
+  'tile034',
+  'tile035',
+  'tile036',
+]
+ 
+laserIndex <= laserFrames.length - 1 ? (player.changeSprite(laserFrames[laserIndex])) : null 
+laserIndex <= laserFrames.length - 1 ? laserIndex++ : null
+
+
+
+}
+let frames = 0
+const MOVE_SPEED = 50
+
+keyDown('space', () => {
+  player.firing = true
+
+  
+})
+keyDown('right', () => {
+  player.direction = 'right'
+  
+})
+keyDown('left', () => {
+  player.direction = 'left'
+
+   frames++
+    frames % 8 == 0 ? walk() : null
+  player.move(-MOVE_SPEED, 0)
+})
+keyDown('up', () => {
+  if(player.direction !== 'left') player.direction = 'up'
+   frames++
+    frames % 8 == 0 ? walk() : null
+  player.move(0, 0-MOVE_SPEED)
+})
+keyDown('down', () => {
+  if(player.direction !== 'left') player.direction = 'down'
+   frames++
+    frames % 8 == 0 ? walk() : null
+  player.move(0, MOVE_SPEED)
+})
+keyRelease(('space'), ()=>{
+  player.firing = false
+  laserIndex = 0
+})
+keyRelease(('right'), ()=>{
+  player.direction = 'idle'
+  // player.changeSprite('Idle1')
+})
+keyRelease(('left'), ()=>{
+  player.direction = 'idle'
+  // player.changeSprite('player')
+})
+keyRelease(('up'), ()=>{
+  player.direction = 'idle'
+  // player.changeSprite('player')
+})
+keyRelease(('down'), ()=>{
+  player.direction = 'idle'
+  // player.changeSprite('player')
+})
+let h = 0
+player.direction = 'idle'
+player.action(() => {
+  if(player.direction == 'right') {
+    frames++
+    frames % 8 == 0 ? walk() : null
+     player.move(MOVE_SPEED, 0)
+  }
+  if(player.firing == true) {
+   frames++
+    frames % 8 == 0 ? laser() : null
+  }
+   camPos(player.pos)
+  
+   if(player.direction == 'idle' && !player.firing){
+    // player.play('idle')
+    frames++
+    frames % 12 == 0 ? idle() : null
+     }
+   
+     if(frames >= 100) frames = 0
+})
+console.log(player.scale)
+});
+start("main");
+
+  </script>
+</body>
+
+</html>
